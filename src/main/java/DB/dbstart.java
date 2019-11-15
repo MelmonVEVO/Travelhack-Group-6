@@ -1,10 +1,9 @@
-package travelhack;
+package DB;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.sql.SQLException;
 
 public class dbstart {
 	
@@ -18,7 +17,7 @@ public class dbstart {
         String QUERY = "SELECT * FROM users WHERE username = '"+
             username+"'          AND password = '"+password+"' ";
         try {
-			Connection myconn= DriverManager.getConnection("jdbc:mysql://localhost:3306/traveldb", "root", "pwd");
+			Connection myconn= DriverManager.getConnection("jdbc:mysql://localhost:3306/traveldb", "root", "root");
 			Statement mystmt= myconn.createStatement();
         	ResultSet myrs = mystmt.executeQuery(QUERY);
         	while(myrs.next()) {

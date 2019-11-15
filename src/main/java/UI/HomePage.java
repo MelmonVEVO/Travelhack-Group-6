@@ -41,21 +41,25 @@ public class HomePage extends VerticalLayout {
                 ui.navigate("ActivityPage");
             });
         });
+        activityFinderButton.setSizeFull();
         schedulerButton.addClickListener(e -> {
             schedulerButton.getUI().ifPresent(ui -> {
                 ui.navigate("SchedulerPage");
             });
         });
+        schedulerButton.setSizeFull();
         rewardButton.addClickListener(e -> {
             rewardButton.getUI().ifPresent(ui -> {
                 ui.navigate("RewardPage");
             });
         });
+        rewardButton.setSizeFull();
         accountButton.addClickListener(e -> {
             accountButton.getUI().ifPresent(ui -> {
                 ui.navigate("AccountPage");
             });
         });
+        accountButton.setSizeFull();
 
         // set up layouts
         homePageLayout.add(logoutButton);
