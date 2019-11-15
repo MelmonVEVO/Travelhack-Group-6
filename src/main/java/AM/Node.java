@@ -1,4 +1,4 @@
-package attmap;
+package AM;
 
 public class Node {
 	
