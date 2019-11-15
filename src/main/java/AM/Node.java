@@ -2,13 +2,12 @@ package AM;
 public class Node {
 	
 	public final String name;
-	public final int rating; //out of 100
-	public final int time; //where time is in minutes
+	public final int exp; //out of 100
+	public final int pos; //where time is in minutes
 
-	public Node(String name, int rating, int time) {
-		//this.time = 0;
+	public Node(String name, int exp, int pos) {
 		this.name = name;
-		this.rating = rating;
-		this.time = time;
+		this.exp = exp;
+		this.pos = pos;
 	}
 }
