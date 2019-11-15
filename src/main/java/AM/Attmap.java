@@ -1,5 +1,5 @@
-package attmap;
-import attmap.Node;
+package AM;
+import AM.Node;
 
 public class Attmap {
 	private final Node[] attractions = {new Node("London Eye", 80), new Node("London Bridge", 70),
