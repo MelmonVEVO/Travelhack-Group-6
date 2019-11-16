@@ -19,8 +19,6 @@ public class Node implements Comparable<Node> {
 		/* For Ascending order*/
 		return this.pos-comparePos;
 
-		/* For Descending order do like this */
-		//return compareage-this.studentage;
 	}
 
 	public String getName() { return name; }
