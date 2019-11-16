@@ -1,5 +1,6 @@
 package AM;
-public class Node {
+
+public class Node implements Comparable<Node> {
 	
 	public final String name;
 	public final int exp; //out of 100
@@ -10,4 +11,14 @@ public class Node {
 		this.exp = exp;
 		this.pos = pos;
 	}
+	
+	@Override
+	public int compareTo(Node compareNode) {
+	    int comparePos=((Node)compareNode).pos;
+	        /* For Ascending order*/
+	    return this.pos-comparePos;
+
+	        /* For Descending order do like this */
+	        //return compareage-this.studentage;
+	    }
 }

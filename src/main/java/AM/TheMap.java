@@ -1,13 +1,13 @@
-package travelhack;
-import java.util.*;
+package AM;
 import java.util.ArrayList;
 import java.util.Random;
+
 public class TheMap {
 	ArrayList<Node> Nodes= new ArrayList<Node>();
 	ArrayList<Node> Route= new ArrayList<Node>();
 
 	public TheMap() {
-		Nodes.add(new Node("London Bridge", 50, 10));
+		Nodes.add(new Node("London Bridge", 50, 10)); // name, exp, pos
 		Nodes.add(new Node("London Eye", 50, 11));
 		Nodes.add(new Node("Tower Bridge", 50, 14));
 		Nodes.add(new Node("Madame Toussauds", 50, 19));
@@ -55,10 +55,10 @@ public class TheMap {
 		for (int i=0; i<size; i++) {
 			int choice= rand.nextInt(this.Nodes.size());
 			boolean exists=false;
-			System.out.println(choice);
+			//System.out.println(choice);
 			for(Node x: Route) {
 				if((x.equals(Nodes.get(choice)))) {
-					System.out.println("Found similar.");
+					//System.out.println("Found similar.");
 					exists=true;
 					
 				}
