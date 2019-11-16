@@ -1,7 +1,7 @@
 package AM;
 
 public class pathTest {
-	public static void main(String[]p) throws Exception {
+    public static void main(String[]p) throws Exception {
 		/*
 		TheMap MyMap= new TheMap();
 		System.out.println(MyMap.getExpOf("Tower bridge"));
@@ -16,11 +16,8 @@ public class pathTest {
 			System.out.print(x.name+x.pos+"=>");
 		}
 		*/
-		Schedule scTest = new Schedule("16/11/2019");
-		scTest.GenerateSchedule(5, 8);
-		scTest.printEntireSchedule();
-		
-	}
-	
-	 
+        Schedule scTest = new Schedule("16/11/2019");
+        scTest.GenerateSchedule(5, 8);
+        scTest.printEntireSchedule();
+    }
 }
