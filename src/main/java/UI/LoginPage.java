@@ -1,5 +1,6 @@
 package UI;
 
+import DB.dbstart;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
@@ -15,6 +16,9 @@ import com.vaadin.flow.router.Route;
 @Route("")
 public class LoginPage extends HorizontalLayout {
     public LoginPage() {
+
+        dbstart db = new dbstart();
+
         VerticalLayout loginLayout = new VerticalLayout();
         VerticalLayout logoLayout = new VerticalLayout();
         VerticalLayout loginForm = new VerticalLayout();
@@ -23,6 +27,7 @@ public class LoginPage extends HorizontalLayout {
         TextField usernameField = new TextField("Username");
         PasswordField passwordField = new PasswordField("Password");
         Button loginButton = new Button("Log in");
+        Button dontHaveAnAccountButton = new Button("Don't have an account");
         Image expediaLogo = new Image("https://github.com/travelhack/travelhack.github.io/blob/master/static/media/travelhack_logo.7b2b2e41.png?raw=true","dummy image");
 
         // set up for components
@@ -34,7 +39,7 @@ public class LoginPage extends HorizontalLayout {
         expediaLogo.setWidth("600px");
 
         // set up layouts
-        loginForm.add(usernameField,passwordField,loginButton);
+        loginForm.add(usernameField,passwordField,loginButton, dontHaveAnAccountButton);
         loginForm.setAlignItems(Alignment.CENTER);
 
         loginLayout.add(title, loginForm);
@@ -42,11 +47,7 @@ public class LoginPage extends HorizontalLayout {
         loginLayout.setHeightFull();
 
         logoLayout.add(expediaLogo);
-        loginLayout.setHeightFull();
-
-        //Stuff to get from database later
-        String correctUsername = "Teach";
-        String correctPassword = "Stuff";
+        logoLayout.setHeightFull();
 
         // check username and password when triggered
         loginButton.addClickListener(e -> {
@@ -62,9 +63,9 @@ public class LoginPage extends HorizontalLayout {
                 label.setText("Some fields were left blank!");
                 dialog.add(label);
                 dialog.open();
-            } else if (usernameField.getValue().equals(correctUsername) && passwordField.getValue().equals(correctPassword)) {
+            } else if (db.validateUserLogin(usernameField.getValue(), passwordField.getValue())) {
                 loginButton.getUI().ifPresent(ui -> {
-                        ui.navigate("Home");
+                        ui.navigate("Home/" + usernameField.getValue());
                 });
             } else {
                 label.setText("Username doesn't match the password, try again!");
@@ -73,6 +74,12 @@ public class LoginPage extends HorizontalLayout {
                 passwordField.clear();
                 dialog.open();
             }
+        });
+
+        dontHaveAnAccountButton.addClickListener(e -> {
+            dontHaveAnAccountButton.getUI().ifPresent(ui -> {
+                ui.navigate("Create");
+            });
         });
 
         add(loginLayout, logoLayout);
